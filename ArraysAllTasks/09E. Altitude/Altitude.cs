@@ -9,14 +9,14 @@
         static void Main()
         {
             string[] array = Console.ReadLine().Split(' ').ToArray();
-            List<int> altitude = new List<int>();
-            int result = 0;
+            List<long> altitude = new List<long>();
+            long result = 0;
 
             for (int i = 0; i < array.Length; i++)
             {
                 if (i % 2 == 0)
                 {
-                    altitude.Add(int.Parse(array[i]));
+                    altitude.Add(long.Parse(array[i]));
                 }
             }
 
@@ -26,12 +26,12 @@
             {
                 if (array[i] == "up")
                 {
-                    result += int.Parse(array[i + 1]);
+                    result += long.Parse(array[i + 1]);
                 }
                 else
                 {
-                    result -= int.Parse(array[i + 1]);
-                    if (result < 0)
+                    result -= long.Parse(array[i + 1]);
+                    if (result <= 0)
                     {
                         Console.WriteLine("crashed");
                         return;

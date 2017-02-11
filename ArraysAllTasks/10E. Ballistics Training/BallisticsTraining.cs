@@ -7,31 +7,31 @@
     {
         static void Main()
         {
-            int[] coordinates = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
+            long[] coordinates = Console.ReadLine().Split(' ').Select(long.Parse).ToArray();
             string[] commandsNumbers = Console.ReadLine().Split(' ').ToArray();
-            int[] result = new int[coordinates.Length];
+            long[] result = new long[coordinates.Length];
 
-            for (int i = 0; i < commandsNumbers.Length; i+=2)
+            for (int i = 0; i < commandsNumbers.Length-1; i += 2)
             {
                 if (commandsNumbers[i] == "up")
                 {
-                    result[1] += int.Parse(commandsNumbers[i + 1]);
+                    result[1] += long.Parse(commandsNumbers[i + 1]);
                 }
                 else if (commandsNumbers[i] == "down")
                 {
-                    result[1] -= int.Parse(commandsNumbers[i + 1]);
+                    result[1] -= long.Parse(commandsNumbers[i + 1]);
                 }
                 else if (commandsNumbers[i] == "left")
                 {
-                    result[0] -= int.Parse(commandsNumbers[i + 1]);
+                    result[0] -= long.Parse(commandsNumbers[i + 1]);
                 }
                 else
                 {
-                    result[0] += int.Parse(commandsNumbers[i + 1]);
+                    result[0] += long.Parse(commandsNumbers[i + 1]);
                 }
             }
 
-            Console.WriteLine($"firing at [{coordinates[0]}, {coordinates[1]}]");
+            Console.WriteLine($"firing at [{result[0]}, {result[1]}]");
 
             if (coordinates[0] == result[0] && coordinates[1] == result[1])
             {
